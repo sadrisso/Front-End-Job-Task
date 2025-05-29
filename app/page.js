@@ -2,16 +2,16 @@ import AboutSection from "@/components/AboutSection";
 import Blog from "@/components/Blog";
 import Footer from "@/components/Footer";
 import FreshProducts from "@/components/FreshProducts";
-import Header from "@/components/Header";
 import PromoBanner from "@/components/PromoBanner";
 import Testimonial from "@/components/Testimonial";
+import Banner from "@/components/Banner";
 
 export default function Home() {
   return (
     <>
       <div className="bg-[#FFFFFF]">
         <div> 
-          <Header />
+          <Banner />
         </div>
 
         <FreshProducts />

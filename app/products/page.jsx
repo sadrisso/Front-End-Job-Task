@@ -1,27 +1,20 @@
-"use client";
-import React from "react";
-import Title from "./Title";
-import { useGetCategoriesQuery, useGetProductsQuery } from "@/app/services/api";
-import Link from "next/link";
+'use client'
+import React from 'react'
+import { useGetProductsQuery } from '../services/api';
+import Title from '@/components/Title';
 
-export default function FreshProducts() {
+export default function page() {
   const {
-    data: products,
-    error: productsError,
-    isLoading: productsIsLoading,
-  } = useGetProductsQuery();
+      data: products,
+      error: productsError,
+      isLoading: productsIsLoading,
+    } = useGetProductsQuery();
 
-  const {
-    data: categories,
-    error: categoriesError,
-    isLoading: categoriesIsLoading,
-  } = useGetCategoriesQuery();
-
-  if (productsIsLoading || categoriesIsLoading) return <p>Loading...</p>;
-  if (productsError || categoriesError) return <p>There was an error loading data.</p>;
+    if (productsError) return <p>There was an error.</p>
+    if (productsIsLoading) return <p>Loading...</p>
 
   return (
-    <div className="px-4 py-10 max-w-6xl mx-auto bg-[#FFFFFF]">
+    <div className='bg-white p-4'>
       <div className="text-center mb-6">
         <Title title="Our Products" />
         <h2 className="text-2xl md:text-3xl font-bold mt-4 text-[#212337]">
@@ -33,19 +26,8 @@ export default function FreshProducts() {
         </p>
       </div>
 
-      <div className="flex justify-center gap-1 md:gap-2 mb-8 px-4">
-        {categories?.data?.map((cat) => (
-            <button
-              key={cat?.id}
-              className="px-4 py-1 rounded-md border hover:bg-green-100 text-xs text-gray-500"
-            >
-              {cat?.categoryName}
-            </button>
-          ))}
-      </div>
-
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
-        {products?.data?.slice(0, 8).map((product) => (
+        {products?.data?.map((product) => (
           <div
             key={product?.id}
             className="bg-white rounded-2xl shadow-md p-4 flex flex-col items-center text-center hover:shadow-lg transition duration-300"
@@ -69,15 +51,6 @@ export default function FreshProducts() {
           </div>
         ))}
       </div>
-
-      <div className="text-center my-6 text-sm font-semibold ">
-        <Link
-          href="/products"
-          className="text-[#FF6A19] border border-[#FF6A19] rounded-md py-3 px-5"
-        >
-          See All Products
-        </Link>
-      </div>
     </div>
-  );
+  )
 }

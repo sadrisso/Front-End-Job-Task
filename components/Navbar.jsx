@@ -1,18 +1,17 @@
 "use client";
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { PiHeartStraight } from "react-icons/pi";
 import { FaCartShopping } from "react-icons/fa6";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoMdClose } from "react-icons/io";
 
-const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
-
 export default function Navbar() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+
   return (
     <div>
-      <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center sticky top-0 z-10">
+      <div className="max-w-full mx-auto px-4 py-4 flex justify-between items-center sticky top-0 z-10 bg-white shadow">
         {/* Logo */}
         <div className="flex items-center gap-2">
           <img
@@ -25,25 +24,25 @@ export default function Navbar() {
           </span>
         </div>
 
-        {/* Nav links - only for desktop */}
+        {/* Desktop Nav Links */}
         <nav className="hidden md:flex gap-6 text-black text-sm">
-          <a href="#home" className="hover:text-green-600">
+          <a href="/" className="hover:text-green-600">
             Home
           </a>
-          <a href="#about" className="hover:text-green-600">
+          <a href="/about" className="hover:text-green-600">
             About
           </a>
-          <a href="#products" className="hover:text-green-600">
+          <a href="/products" className="hover:text-green-600">
             Products
           </a>
-          <a href="#contact" className="hover:text-green-600">
+          <a href="/contact" className="hover:text-green-600">
             Contact
           </a>
         </nav>
 
         {/* Right Section */}
         <div className="flex items-center gap-4">
-          {/* Desktop icons */}
+          {/* Desktop Icons */}
           <div className="hidden md:flex items-center gap-4 text-xs text-black">
             <button className="flex items-center gap-2">
               <PiHeartStraight />
@@ -61,7 +60,7 @@ export default function Navbar() {
             </button>
           </div>
 
-          {/* Mobile menu toggle */}
+          {/* Mobile Icons */}
           <div className="md:hidden flex items-center gap-4 bg-[#84A178] px-3 py-2 rounded-md">
             <div className="relative">
               <FaCartShopping className="text-white text-lg" />
@@ -79,10 +78,12 @@ export default function Navbar() {
           </div>
         </div>
       </div>
-      {/* Mobile menu */}
+
+      {/* Mobile Sliding Menu */}
       <div
-        className={`fixed top-0 left-0 h-full w-64 bg-[#f7f7f7] px-6 py-4 shadow-lg z-40 transform transition-transform duration-300 ease-in-out
-        ${isMenuOpen ? "translate-x-0" : "-translate-x-full"} md:hidden`}
+        className={`fixed top-0 left-0 h-full w-64 bg-[#f7f7f7] px-6 py-4 shadow-lg z-40 transform transition-transform duration-300 ease-in-out ${
+          isMenuOpen ? "translate-x-0" : "-translate-x-full"
+        } md:hidden`}
       >
         <div className="flex justify-end mb-4">
           <button onClick={toggleMenu}>
