@@ -4,7 +4,7 @@ import Title from "./Title";
 const Hero = () => {
   return (
     <div>
-      <section className="bg-[#F0F0F0] py-16 px-4 sm:px-6 lg:px-8">
+      <section className="bg-[#F0F0F0] py-16 px-4 sm:px-6 lg:px-8 md:h-[500px]">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div>
             <div className="mb-6">
@@ -20,13 +20,13 @@ const Hero = () => {
               Shop Now
             </button>
           </div>
-          <div className="flex justify-center">
+          {/* <div className="flex justify-center">
             <img
               src="https://i.ibb.co/xgmBLRj/organic-veggies.png"
               alt="Fresh produce"
               className="w-full max-w-md md:max-w-full"
             />
-          </div>
+          </div> */}
         </div>
       </section>
     </div>
