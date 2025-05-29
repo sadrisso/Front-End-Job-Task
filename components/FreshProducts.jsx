@@ -1,5 +1,7 @@
-import React from "react";
+'use client'
+import React, { useState } from "react";
 import Title from "./Title";
+import { useGetProductsQuery } from "@/app/services/api";
 
 const products = [
   { name: "Mushroom", price: "$2.3/kg", image: "🍄" },
@@ -15,6 +17,12 @@ const products = [
 const categories = ["All", "Fruits", "Vegetables", "Salad"];
 
 export default function FreshProducts() {
+
+  const {data, error, isLoading} = useGetProductsQuery()
+  if (isLoading) return <p>Loading...</p>
+  if (error) return <p>There was an error!</p>
+  console.log("All Products Data: ", data?.data)
+
   return (
     <div className="px-4 py-10 max-w-6xl mx-auto bg-[#FFFFFF]">
       <div className="text-center mb-6">

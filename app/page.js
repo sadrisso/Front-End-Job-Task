@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <>
       <div className="bg-[#FFFFFF]">
-        <div>
+        <div> 
           <Header />
         </div>
 
