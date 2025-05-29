@@ -13,7 +13,7 @@ export default function AboutSection() {
         />
 
         {/* Decorative badge */}
-        <div className="absolute top-52 left-3/5 -translate-x-1/2 md:translate-x-0 md:left-52 flex items-center bg-white px-3 py-1 rounded-full shadow-md gap-2">
+        <div className="absolute top-28 sm:top-52 left-3/5 -translate-x-1/2 md:translate-x-0 md:left-52 flex items-center bg-white px-3 py-1 rounded-full shadow-md gap-2">
           <img
             src="https://i.ibb.co/vzY3nQZ/logo.png" // placeholder logo icon
             alt="logo"

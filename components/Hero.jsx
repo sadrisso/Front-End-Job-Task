@@ -20,13 +20,6 @@ const Hero = () => {
               Shop Now
             </button>
           </div>
-          {/* <div className="flex justify-center">
-            <img
-              src="https://i.ibb.co/xgmBLRj/organic-veggies.png"
-              alt="Fresh produce"
-              className="w-full max-w-md md:max-w-full"
-            />
-          </div> */}
         </div>
       </section>
     </div>
