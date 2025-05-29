@@ -18,6 +18,10 @@ This is a basic [Next.js](https://nextjs.org/) project showcasing:
 
 ---
 
+## Important Links
+- Git Repo: https://github.com/sadrisso/Front-End-Job-Task/
+- Live: https://front-end-job-task-six.vercel.app/
+
 ## 🛠️ Getting Started
 
 ### 📦 Prerequisites
