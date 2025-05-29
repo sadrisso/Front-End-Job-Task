@@ -50,23 +50,23 @@ export default function FreshProducts() {
             key={product?.id}
             className="bg-white rounded-2xl shadow-md p-4 flex flex-col items-center text-center hover:shadow-lg transition duration-300"
           >
-            <div className="w-full bg-gray-100 p-4 rounded-xl mb-4">
+            <Link href={`/products/${product?.id}`} className="w-full bg-gray-100 p-4 rounded-xl mb-4">
               <img
                 src={product?.images}
                 alt={product?.productName}
                 className="h-20 md:h-40 w-full object-contain mx-auto"
               />
-            </div>
-            <Link className="text-[10px]" href={`/products/${product?.id}`}>See Details</Link>
-            <h3 className="font-semibold text-sm text-gray-800 mb-1">
+            </Link>
+            
+            <Link href={`/products/${product?.id}`} className="font-semibold text-sm text-gray-800 mb-1">
               {product?.productName}
-            </h3>
+            </Link>
             <p className="text-xs text-gray-500 mb-1">
               Price: ${product?.price}
             </p>
-            <button className="px-2 py-1 rounded-lg border border-gray-400 text-gray-600 w-full text-xs transition">
+            <Link href="/product/cart" className="px-2 py-1 rounded-lg border border-gray-400 text-gray-600 w-full text-xs transition">
               Add to Cart
-            </button>
+            </Link>
           </div>
         ))}
       </div>

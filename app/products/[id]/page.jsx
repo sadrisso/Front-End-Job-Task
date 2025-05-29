@@ -1,12 +1,13 @@
 "use client";
 import { useGetProductQuery } from "@/app/services/api";
+import RelatedProducts from "@/components/RelatedProducts";
 import Title from "@/components/Title";
 import { useParams } from "next/navigation";
 import React, { useState } from "react";
 
 // ProductDetail component
 function ProductDetail() {
-  const {id} = useParams()
+  const { id } = useParams();
 
   const [quantity, setQuantity] = useState(1);
   const [activeTab, setActiveTab] = useState("description");
@@ -15,13 +16,13 @@ function ProductDetail() {
     data: product,
     error: productError,
     isLoading: productIsLoading,
-  } = useGetProductQuery(id); 
+  } = useGetProductQuery(id);
 
   if (productError) return <p className="h-[95vh]">Error occurred</p>;
-  if (productIsLoading) return <p className="text-center p-5 h-[95vh]">Loading...</p>;
+  if (productIsLoading)
+    return <p className="text-center p-5 h-[95vh]">Loading...</p>;
 
   console.log("Product: ", product?.data);
-
 
   // Function to handle quantity increase
   const increaseQuantity = () => {
@@ -59,8 +60,8 @@ function ProductDetail() {
 
           {/* Product Information */}
           <div className="w-full lg:w-1/2 flex flex-col text-center lg:text-left">
-            <Title title="Fruits" className="inline-block"/>
-            <h2 className="text-4xl sm:text-5xl font-bold text-gray-800 mb-2">
+            <Title title="Fruits" className="inline-block" />
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-2">
               {product?.data?.productName}
             </h2>
             <div className="flex items-center justify-center lg:justify-start mb-4">
@@ -78,8 +79,10 @@ function ProductDetail() {
               ))}
               <span className="ml-2 text-gray-600 text-sm">5.0 (1 review)</span>
             </div>
-            <p className="text-3xl font-bold text-gray-800 mb-4">${product?.data?.price}</p>
-            <p className="text-gray-700 leading-relaxed mb-6">
+            <p className="text-2xl font-bold text-gray-800 mb-4">
+              ${product?.data?.price}
+            </p>
+            <p className="text-gray-700 text-sm leading-relaxed mb-6">
               {product?.data?.description}
             </p>
 
@@ -170,7 +173,7 @@ function ProductDetail() {
         {/* Tab Content */}
         <div className="md:pl-8">
           {activeTab === "description" && (
-            <p className="text-gray-700 bg-[#F4F6F6] md:w-3/5 leading-relaxed p-2 md:p-4 rounded-xl">
+            <p className="text-gray-700 bg-[#F4F6F6] md:w-3/5 leading-relaxed p-2 md:p-4 rounded-xl text-sm">
               Our coconuts are sustainably grown, ensuring the best quality and
               taste. Each coconut is handpicked and carefully prepared, offering
               you the freshest product possible. Rich in healthy fats,
@@ -182,11 +185,14 @@ function ProductDetail() {
           )}
           {activeTab === "reviews" && (
             <div className="text-gray-700">
-              <h3 className="text-xl font-semibold mb-4">Customer Reviews</h3>
+              <h3 className="text-sm font-semibold mb-4 ">Customer Reviews</h3>
               <p>No reviews yet. Be the first to review this product!</p>
             </div>
           )}
         </div>
+      </div>
+      <div>
+        <RelatedProducts />
       </div>
     </div>
   );

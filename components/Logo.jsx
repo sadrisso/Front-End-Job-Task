@@ -1,8 +1,9 @@
+import Link from "next/link";
 import React from "react";
 
 export default function Logo() {
-  return (
-    <div>
+  return ( 
+    <Link href="/">
       <div className="flex justify-center items-center gap-2">
         <img
           src="https://i.ibb.co/DPqqQJDv/logo.jpg" // Placeholder for Fresh Harvests logo icon
@@ -11,6 +12,6 @@ export default function Logo() {
         />
         <h3 className="text-xl font-bold text-gray-800">Fresh Harvests</h3>
       </div>
-    </div>
+    </Link>
   );
 }

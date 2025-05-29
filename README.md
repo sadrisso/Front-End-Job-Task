@@ -32,8 +32,8 @@ This is a basic [Next.js](https://nextjs.org/) project showcasing:
 Clone the project and install dependencies:
 
 ```bash
-git clone https://github.com/your-username/your-repo.git
-cd your-repo
+git clone https://github.com/sadrisso/Front-End-Job-Task.git
+cd Front-End-Job-Task
 
 npm install
 # or
