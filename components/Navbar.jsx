@@ -4,38 +4,62 @@ import { PiHeartStraight } from "react-icons/pi";
 import { FaCartShopping } from "react-icons/fa6";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoMdClose } from "react-icons/io";
+import LoginModal from "./LoginModal";
+import { usePathname } from "next/navigation";
+import Logo from "./Logo";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleOpenModal = () => setIsModalOpen(true);
+  const handleCloseModal = () => setIsModalOpen(false);
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+
+  const pathname = usePathname();
 
   return (
     <div>
-      <div className="max-w-full mx-auto px-4 py-4 flex justify-between items-center sticky top-0 z-10 bg-white shadow">
+      <div className="max-w-8xl mx-auto px-2 md:px-30 py-2 flex justify-between items-center sticky top-0 z-10 bg-white shadow h-14">
         {/* Logo */}
-        <div className="flex items-center gap-2">
-          <img
-            src="https://i.ibb.co/vzY3nQZ/logo.png"
-            alt="Logo"
-            className="w-6 h-6 md:w-7 md:h-7"
-          />
-          <span className="text-lg md:text-xl font-bold text-black">
-            Fresh Harvests
-          </span>
-        </div>
+        <Logo className="h-8 w-auto" />
 
         {/* Desktop Nav Links */}
-        <nav className="hidden md:flex gap-6 text-black text-sm">
-          <a href="/" className="hover:text-green-600">
+        <nav className="hidden md:flex gap-6 text-black text-xs">
+          <a
+            href="/"
+            className={`hover:text-green-600 pb-1 border-b-2 ${
+              pathname === "/" ? "border-green-600" : "border-transparent"
+            }`}
+          >
             Home
           </a>
-          <a href="/about" className="hover:text-green-600">
+          <a
+            href="#about"
+            className={`hover:text-green-600 pb-1 border-b-2 ${
+              pathname === "/about" ? "border-green-600" : "border-transparent"
+            }`}
+          >
             About
           </a>
-          <a href="/products" className="hover:text-green-600">
+          <a
+            href="/products"
+            className={`hover:text-green-600 pb-1 border-b-2 ${
+              pathname === "/products"
+                ? "border-green-600"
+                : "border-transparent"
+            }`}
+          >
             Products
           </a>
-          <a href="/contact" className="hover:text-green-600">
+          <a
+            href="/contact"
+            className={`hover:text-green-600 pb-1 border-b-2 ${
+              pathname === "/contact"
+                ? "border-green-600"
+                : "border-transparent"
+            }`}
+          >
             Contact
           </a>
         </nav>
@@ -55,12 +79,15 @@ export default function Navbar() {
                 3
               </span>
             </button>
-            <button className="border py-1 px-3 rounded-md font-bold">
+            <button
+              onClick={handleOpenModal}
+              className="border py-1 px-3 rounded-md font-bold"
+            >
               Sign In
             </button>
           </div>
 
-          {/* Mobile Icons */}
+          {/* Mobile Toggle */}
           <div className="md:hidden flex items-center gap-4 bg-[#84A178] px-3 py-2 rounded-md">
             <div className="relative">
               <FaCartShopping className="text-white text-lg" />
@@ -91,18 +118,19 @@ export default function Navbar() {
           </button>
         </div>
         <div className="space-y-4 text-sm font-medium text-gray-700 flex flex-col">
-          <a href="#home" onClick={toggleMenu}>
+          <a href="/" className="hover:text-green-600">
             Home
           </a>
-          <a href="#about" onClick={toggleMenu}>
+          <a href="#about" className="hover:text-green-600">
             About
           </a>
-          <a href="#products" onClick={toggleMenu}>
+          <a href="/products" className="hover:text-green-600">
             Products
           </a>
-          <a href="#contact" onClick={toggleMenu}>
+          <a href="/contact" className="hover:text-green-600">
             Contact
           </a>
+
           <hr />
           <a
             href="#favourites"
@@ -119,13 +147,19 @@ export default function Navbar() {
             <FaCartShopping /> Cart
           </a>
           <button
-            onClick={toggleMenu}
+            onClick={() => {
+              toggleMenu();
+              handleOpenModal();
+            }}
             className="border w-full text-center py-2 rounded-md font-bold"
           >
             Sign In
           </button>
         </div>
       </div>
+
+      {/* Modal rendered outside of the sliding menu */}
+      <LoginModal isOpen={isModalOpen} onClose={handleCloseModal} />
     </div>
   );
 }

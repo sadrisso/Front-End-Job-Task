@@ -17,8 +17,8 @@ export default function FreshProducts() {
     isLoading: categoriesIsLoading,
   } = useGetCategoriesQuery();
 
-  if (productsIsLoading || categoriesIsLoading) return <p>Loading...</p>;
-  if (productsError || categoriesError) return <p>There was an error loading data.</p>;
+  if (productsIsLoading || categoriesIsLoading) return <p className="text-black text-center p-5 h-[95vh]">Loading...</p>;
+  if (productsError || categoriesError) return <p className="text-black text-center p-5 h-[95vh]">There was an error loading data.</p>;
 
   return (
     <div className="px-4 py-10 max-w-6xl mx-auto bg-[#FFFFFF]">
@@ -44,7 +44,7 @@ export default function FreshProducts() {
           ))}
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-6">
         {products?.data?.slice(0, 8).map((product) => (
           <div
             key={product?.id}
@@ -54,16 +54,17 @@ export default function FreshProducts() {
               <img
                 src={product?.images}
                 alt={product?.productName}
-                className="h-40 w-full object-contain mx-auto"
+                className="h-20 md:h-40 w-full object-contain mx-auto"
               />
             </div>
-            <h3 className="font-semibold text-lg text-gray-800 mb-1">
+            <Link className="text-[10px]" href={`/products/${product?.id}`}>See Details</Link>
+            <h3 className="font-semibold text-sm text-gray-800 mb-1">
               {product?.productName}
             </h3>
-            <p className="text-sm text-gray-500 mb-1">
+            <p className="text-xs text-gray-500 mb-1">
               Price: ${product?.price}
             </p>
-            <button className="px-2 py-1 rounded-lg border border-gray-400 text-gray-600 w-full transition">
+            <button className="px-2 py-1 rounded-lg border border-gray-400 text-gray-600 w-full text-xs transition">
               Add to Cart
             </button>
           </div>

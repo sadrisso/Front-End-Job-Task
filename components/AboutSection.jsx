@@ -3,7 +3,7 @@ import Title from './Title';
 
 export default function AboutSection() {
   return (
-    <section className="max-w-7xl mx-auto px-4 py-16 grid grid-cols-1 md:grid-cols-2 items-center gap-10">
+    <section id="about" className="max-w-7xl mx-auto px-4 py-16 grid grid-cols-1 md:grid-cols-2 items-center gap-10">
       {/* Left side with image and decorative content */}
       <div className="relative w-full">
         <img
@@ -15,9 +15,9 @@ export default function AboutSection() {
         {/* Decorative badge */}
         <div className="absolute top-28 sm:top-52 left-3/5 -translate-x-1/2 md:translate-x-0 md:left-52 flex items-center bg-white px-3 py-1 rounded-full shadow-md gap-2">
           <img
-            src="https://i.ibb.co/vzY3nQZ/logo.png" // placeholder logo icon
+            src="https://i.ibb.co/DPqqQJDv/logo.jpg" // placeholder logo icon
             alt="logo"
-            className="w-4 h-4 md:w-5 md:h-5"
+            className="w-4 h-4 md:w-5 md:h-5 rounded-md"
           />
           <span className="font-semibold text-xs md:text-sm text-black">Fresh Harvests</span>
         </div>
@@ -25,7 +25,7 @@ export default function AboutSection() {
         {/* Product card example */}
         <div className="absolute -bottom-20 md:-bottom-8 left-3/4 md:left-88 -translate-x-1/2 bg-white shadow-md rounded-xl p-2 md:p-4 w-30 md:w-40">
           <img
-            src="https://i.ibb.co/3YxCzJ9/lettuce.png" // placeholder product
+            src="https://i.ibb.co/6JHHMnMt/Spinach.jpg" // placeholder product
             alt="Mushroom"
             className="w-full h-20 object-contain mb-2"
           />

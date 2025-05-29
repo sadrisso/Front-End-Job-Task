@@ -2,6 +2,7 @@
 import React from 'react'
 import { useGetProductsQuery } from '../services/api';
 import Title from '@/components/Title';
+import Link from 'next/link';
 
 export default function page() {
   const {
@@ -10,8 +11,8 @@ export default function page() {
       isLoading: productsIsLoading,
     } = useGetProductsQuery();
 
-    if (productsError) return <p>There was an error.</p>
-    if (productsIsLoading) return <p>Loading...</p>
+    if (productsError) return <p className='h-[100vh] text-center p-5'>There was an error.</p>
+    if (productsIsLoading) return <p className='h-[100vh] text-center p-5'>Loading...</p>
 
   return (
     <div className='bg-white p-4'>
@@ -26,7 +27,7 @@ export default function page() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-6">
         {products?.data?.map((product) => (
           <div
             key={product?.id}
@@ -36,16 +37,17 @@ export default function page() {
               <img
                 src={product?.images}
                 alt={product?.productName}
-                className="h-40 w-full object-contain mx-auto"
+                className="h-20 sm:h-30 md:h-35 lg:h-40 w-full object-contain mx-auto"
               />
             </div>
-            <h3 className="font-semibold text-lg text-gray-800 mb-1">
+            <Link className="text-[10px]" href={`/products/${product?.id}`}>See Details</Link>
+            <h3 className="font-semibold text-sm text-gray-800 mb-1">
               {product?.productName}
             </h3>
-            <p className="text-sm text-gray-500 mb-1">
+            <p className="text-xs text-gray-500 mb-1">
               Price: ${product?.price}
             </p>
-            <button className="px-2 py-1 rounded-lg border border-gray-400 text-gray-600 w-full transition">
+            <button className="px-2 py-1 text-xs rounded-lg border border-gray-400 text-gray-600 w-full transition">
               Add to Cart
             </button>
           </div>

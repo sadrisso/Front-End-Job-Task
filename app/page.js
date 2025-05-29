@@ -10,21 +10,14 @@ export default function Home() {
   return (
     <>
       <div className="bg-[#FFFFFF]">
-        <div> 
-          <Banner />
-        </div>
-
+        <Banner />
         <FreshProducts />
-
         <AboutSection />
-
         <div className="w-full">
           <PromoBanner />
         </div>
-
-        <Testimonial /> 
+        <Testimonial />
         <Blog />
-        <Footer />
       </div>
     </>
   );
