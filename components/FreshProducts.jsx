@@ -35,12 +35,13 @@ export default function FreshProducts() {
 
       <div className="flex justify-center gap-1 md:gap-2 mb-8 px-4">
         {categories?.data?.map((cat) => (
-            <button
+            <Link
+              href={`/category/${cat?.id}`}
               key={cat?.id}
               className="px-4 py-1 rounded-md border hover:bg-green-100 text-xs text-gray-500"
             >
               {cat?.categoryName}
-            </button>
+            </Link>
           ))}
       </div>
 

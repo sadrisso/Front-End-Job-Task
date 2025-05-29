@@ -1,30 +1,46 @@
 "use client";
-import Title from "./Title";
+import React from 'react';
+import Title from './Title';
 
 const Banner = () => {
-
   return (
-    <header className="bg-white shadow-sm bg-[url('https://i.ibb.co/HT5dTxTT/Adobe-Stock-335745675-Preview.jpg')] bg-center bg-no-repeat bg-cover">
-      <section className="py-16 px-4 sm:px-6 lg:px-8 md:h-[600px]">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div>
-            <div className="mb-6">
-              <Title title="Welcome to fresh harvest" />
+    <div className="relative w-full overflow-hidden">
+      {/* Background image with overlay */}
+      <div className="absolute inset-0 z-0">
+        <div className="bg-[url('https://i.ibb.co/HT5dTxTT/Adobe-Stock-335745675-Preview.jpg')] bg-cover bg-center w-full h-full" />
+        <div className="absolute inset-0  bg-opacity-30" />
+      </div>
+      
+      {/* Content container */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8 min-h-[500px] md:min-h-[600px] flex flex-col justify-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center absolute">
+          {/* Left content */}
+          <div className="text-left text-black ">
+            <div className="mb-4">
+              <Title title="Welcome to Fresh Harvest"/>
             </div>
-            <h1 className="text-4xl sm:text-5xl font-bold text-[#212337] mb-6">
+            
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight sm:leading-tight md:leading-tight mb-4 text-gray-800">
               Fresh Fruits and Vegetables
             </h1>
-            <p className="text-xs md:w-2/3 text-[#4A4A52] mb-8">
-              At Fresh Harvest we are passionate about providing you with the
-              freshest and most flavorful fruits and vegetables
+            
+            <p className="text-opacity-90 text-xs text-gray-600 max-w-[450px] mx-auto md:mx-0 mb-8">
+              At Fresh Harvest, we are passionate about providing you with the freshest
+              and most flavorful fruits and vegetables
             </p>
-            <button className="px-6 py-3 bg-[#FF6A19] text-white rounded-xl font-semibold text-sm transition">
+            
+            <button className="px-8 py-3 text-white bg-[#FF6A19] hover:bg-[#e55c0e] rounded-xl font-semibold text-base md:text-sm transition-all duration-300 transform hover:scale-105 shadow-lg shadow-[#FF6A19]/30">
               Shop Now
             </button>
           </div>
+          
+          {/* Special offer card */}
+          <div className="relative top-40 -left-80">
+            <img className='w-34 h-20' src="https://i.ibb.co.com/5K8JHxB/Special-Offer.png" alt="" />
+          </div>
         </div>
-      </section>
-    </header>
+      </div>
+    </div>
   );
 };
 
