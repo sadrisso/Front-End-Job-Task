@@ -3,7 +3,6 @@ import Blog from "@/components/Blog";
 import Footer from "@/components/Footer";
 import FreshProducts from "@/components/FreshProducts";
 import Header from "@/components/Header";
-import Hero from "@/components/Hero";
 import PromoBanner from "@/components/PromoBanner";
 import Testimonial from "@/components/Testimonial";
 

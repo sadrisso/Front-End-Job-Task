@@ -1,24 +1,17 @@
 "use client";
+import React, {useState} from "react";
 import { PiHeartStraight } from "react-icons/pi";
 import { FaCartShopping } from "react-icons/fa6";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoMdClose } from "react-icons/io";
-import Title from "./Title";
-import LoginModal from "./LoginModal";
-import { useState } from "react";
 
-const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
-  const handleOpenModal = () => {
-    setIsMenuOpen(false);
-    setIsModalOpen(true);
-  };
-  const handleCloseModal = () => setIsModalOpen(false);
+const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+
+export default function Navbar() {
   return (
-    <header className="bg-white shadow-sm bg-[url('https://i.ibb.co/HT5dTxTT/Adobe-Stock-335745675-Preview.jpg')] bg-center bg-no-repeat bg-cover">
+    <div>
       <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center sticky top-0 z-10">
         {/* Logo */}
         <div className="flex items-center gap-2">
@@ -63,10 +56,7 @@ const Header = () => {
                 3
               </span>
             </button>
-            <button
-              onClick={handleOpenModal}
-              className="border py-1 px-3 rounded-md font-bold"
-            >
+            <button className="border py-1 px-3 rounded-md font-bold">
               Sign In
             </button>
           </div>
@@ -89,29 +79,10 @@ const Header = () => {
           </div>
         </div>
       </div>
-      <section className="py-16 px-4 sm:px-6 lg:px-8 md:h-[600px]">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div>
-            <div className="mb-6">
-              <Title title="Welcome to fresh harvest" />
-            </div>
-            <h1 className="text-4xl sm:text-5xl font-bold text-[#212337] mb-6">
-              Fresh Fruits and Vegetables
-            </h1>
-            <p className="text-xs md:w-2/3 text-[#4A4A52] mb-8">
-              At Fresh Harvest we are passionate about providing you with the
-              freshest and most flavorful fruits and vegetables
-            </p>
-            <button className="px-6 py-3 bg-[#FF6A19] text-white rounded-xl font-semibold text-sm transition">
-              Shop Now
-            </button>
-          </div>
-        </div>
-      </section>
       {/* Mobile menu */}
       <div
         className={`fixed top-0 left-0 h-full w-64 bg-[#f7f7f7] px-6 py-4 shadow-lg z-40 transform transition-transform duration-300 ease-in-out
-    ${isMenuOpen ? "translate-x-0" : "-translate-x-full"} md:hidden`}
+        ${isMenuOpen ? "translate-x-0" : "-translate-x-full"} md:hidden`}
       >
         <div className="flex justify-end mb-4">
           <button onClick={toggleMenu}>
@@ -147,19 +118,13 @@ const Header = () => {
             <FaCartShopping /> Cart
           </a>
           <button
-            onClick={() => {
-              toggleMenu();
-              handleOpenModal();
-            }}
+            onClick={toggleMenu}
             className="border w-full text-center py-2 rounded-md font-bold"
           >
             Sign In
           </button>
         </div>
       </div>
-      <LoginModal isOpen={isModalOpen} onClose={handleCloseModal} />
-    </header>
+    </div>
   );
-};
-
-export default Header;
+}
