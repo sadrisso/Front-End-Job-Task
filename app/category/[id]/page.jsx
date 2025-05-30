@@ -1,16 +1,22 @@
 "use client";
-import { useGetCategoriesQuery } from "@/app/services/api";
+import { useGetCategoryQuery } from "@/app/services/api";
+import Link from "next/link";
 import { useParams } from "next/navigation";
 import React from "react";
 
 export default function page() {
   const { id } = useParams();
-  const { data, error, isLoading } = useGetCategoriesQuery(id);
+  const { data, error, isLoading } = useGetCategoryQuery(id);
 
   if (error)
     return <p className="h-[100vh] text-center p-5">There was an error.</p>;
   if (isLoading) return <p className="h-[100vh] text-center p-5">Loading...</p>;
 
   console.log("category data: ", data);
-  return <div className="h-[100vh]">{id}</div>;
+
+  return (
+    <div className="h-[100vh] bg-white">
+      <h2 className="text-black">{data?.data?.productName}</h2>
+    </div>
+  );
 }

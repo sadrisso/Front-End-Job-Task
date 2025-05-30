@@ -19,37 +19,31 @@ export default function RelatedProducts() {
           </h2>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 my-8 px-2 md:px-20">
             {data?.data?.slice(0, 4).map((product) => (
-              <div
+              <Link
+                href={`/products/${product?.id}`}
                 key={product?.id}
                 className="bg-white rounded-2xl shadow-md p-4 flex flex-col items-center text-center hover:shadow-lg transition duration-300"
               >
-                <Link
-                  href={`/products/${product?.id}`}
-                  className="w-full bg-gray-100 p-4 rounded-xl mb-4"
-                >
+                <div className="w-full bg-gray-100 p-4 rounded-xl mb-4">
                   <img
                     src={product?.images}
                     alt={product?.productName}
                     className="h-20 sm:h-30 md:h-35 lg:h-40 w-full object-contain mx-auto"
                   />
-                </Link>
+                </div>
 
-                <Link
-                  href={`/products/${product?.id}`}
+                <div
                   className="font-semibold text-sm text-gray-800 mb-1"
                 >
                   {product?.productName}
-                </Link>
+                </div>
                 <p className="text-xs text-gray-500 mb-1">
                   Price: ${product?.price}
                 </p>
-                <Link
-                  href="/product/cart"
-                  className="px-2 py-1 text-xs rounded-lg border border-gray-400 text-gray-600 w-full transition"
-                >
+                <div className="px-2 py-1 text-xs rounded-lg border border-gray-400 text-gray-600 w-full transition">
                   Add to Cart
-                </Link>
-              </div>
+                </div>
+              </Link>
             ))}
           </div>
         </div>
