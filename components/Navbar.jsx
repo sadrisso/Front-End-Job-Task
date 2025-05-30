@@ -7,6 +7,7 @@ import { IoMdClose } from "react-icons/io";
 import { usePathname } from "next/navigation";
 import Logo from "./Logo";
 import LoginRegisterModal from "./LoginRegisterModal";
+import Link from "next/link";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -34,14 +35,14 @@ export default function Navbar() {
           >
             Home
           </a>
-          <a
-            href="#about"
+          <Link
+            href="/about"
             className={`hover:text-green-600 pb-1 border-b-2 ${
               pathname === "/about" ? "border-green-600" : "border-transparent"
             }`}
           >
             About
-          </a>
+          </Link>
           <a
             href="/products"
             className={`hover:text-green-600 pb-1 border-b-2 ${
@@ -52,8 +53,8 @@ export default function Navbar() {
           >
             Shop
           </a>
-          <a
-            href="#blog"
+          <Link
+            href="/blog"
             className={`hover:text-green-600 pb-1 border-b-2 ${
               pathname === "/contact"
                 ? "border-green-600"
@@ -61,7 +62,7 @@ export default function Navbar() {
             }`}
           >
             Blog
-          </a>
+          </Link>
         </nav>
 
         {/* Right Section */}
@@ -121,15 +122,15 @@ export default function Navbar() {
           <a href="/" className="hover:text-green-600">
             Home
           </a>
-          <a href="#about" className="hover:text-green-600">
+          <Link href="/about" className="hover:text-green-600">
             About
-          </a>
+          </Link>
           <a href="/products" className="hover:text-green-600">
             Shop
           </a>
-          <a href="#blog" className="hover:text-green-600">
+          <Link href="/blog" className="hover:text-green-600">
             Blog
-          </a>
+          </Link>
 
           <hr />
           <a

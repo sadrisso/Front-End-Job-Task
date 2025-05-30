@@ -7,28 +7,7 @@ import RegisterForm from "./RegisterForm";
 import LoginForm from "./LoginForm";
 
 export default function LoginRegisterModal({ isOpen, onClose }) {
-  // Always define hooks at the top level
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const [isRegister, setIsRegister] = useState(false);
-
-  const handleOpenModal = () => setIsModalOpen(true);
-  const handleCloseModal = () => setIsModalOpen(false);
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setError("");
-    try {
-      await signInWithEmailAndPassword(auth, email, password);
-      alert("Login successful!");
-      onClose();
-    } catch (err) {
-      setError(err.message);
-    }
-  };
 
   // Don't render the modal if not open
   if (!isOpen) return null;

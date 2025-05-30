@@ -3,7 +3,7 @@ import Title from './Title';
 
 export default function AboutSection() {
   return (
-    <section id="about" className="max-w-7xl mx-auto px-4 py-16 grid grid-cols-1 md:grid-cols-2 items-center gap-10">
+    <section id="about" className="bg-white lg:px-42 mx-auto px-4 py-16 grid grid-cols-1 md:grid-cols-2 items-center gap-10">
       {/* Left side with image and decorative content */}
       <div className="relative w-full">
         <img
