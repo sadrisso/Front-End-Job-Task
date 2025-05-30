@@ -50,17 +50,17 @@ export default function Navbar() {
                 : "border-transparent"
             }`}
           >
-            Products
+            Shop
           </a>
           <a
-            href="/contact"
+            href="#blog"
             className={`hover:text-green-600 pb-1 border-b-2 ${
               pathname === "/contact"
                 ? "border-green-600"
                 : "border-transparent"
             }`}
           >
-            Contact
+            Blog
           </a>
         </nav>
 
@@ -125,10 +125,10 @@ export default function Navbar() {
             About
           </a>
           <a href="/products" className="hover:text-green-600">
-            Products
+            Shop
           </a>
-          <a href="/contact" className="hover:text-green-600">
-            Contact
+          <a href="#blog" className="hover:text-green-600">
+            Blog
           </a>
 
           <hr />

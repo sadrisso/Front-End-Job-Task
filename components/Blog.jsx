@@ -28,7 +28,7 @@ export default function Blog() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4 sm:p-6 lg:p-8 font-inter">
+    <div id="blog" className="min-h-screen bg-gray-50 flex items-center justify-center p-4 sm:p-6 lg:p-8 font-inter">
       {/* Container for the blog content and decorative elements */}
       {/* Relative positioning allows absolute positioning of decorative elements within it */}
       <div className="relative w-full max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">

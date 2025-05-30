@@ -1,5 +1,5 @@
 "use client";
-import { auth } from "@/app/firebase.init";
+// import { auth } from "@/app/firebase.init";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import React, { useState } from "react";
 

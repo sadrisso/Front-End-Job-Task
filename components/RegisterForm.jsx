@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "@/app/firebase.init";
+// import { auth } from "@/app/firebase.init";
 import LoginModal from "./LoginRegisterModal";
 
 export default function RegisterForm() {
