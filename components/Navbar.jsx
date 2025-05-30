@@ -4,9 +4,9 @@ import { PiHeartStraight } from "react-icons/pi";
 import { FaCartShopping } from "react-icons/fa6";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoMdClose } from "react-icons/io";
-import LoginModal from "./LoginModal";
 import { usePathname } from "next/navigation";
 import Logo from "./Logo";
+import LoginRegisterModal from "./LoginRegisterModal";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -159,7 +159,7 @@ export default function Navbar() {
       </div>
 
       {/* Modal rendered outside of the sliding menu */}
-      <LoginModal isOpen={isModalOpen} onClose={handleCloseModal} />
+      <LoginRegisterModal isOpen={isModalOpen} onClose={handleCloseModal} />
     </div>
   );
 }
